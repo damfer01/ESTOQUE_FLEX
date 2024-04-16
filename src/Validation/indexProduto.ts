@@ -2,7 +2,7 @@ import{ Request, Response} from 'express';
 import { validationResult  } from'express-validator';
 
 
-export const storeCaixa = async function (request:Request, response:Response, next) {
+export const storeProduto = async function (request:Request, response:Response, next) {
      try {
         const errors =  validationResult(request);
         if(!errors.isEmpty()){

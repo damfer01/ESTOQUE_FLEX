@@ -1,6 +1,5 @@
 
 const rotas = require('./Routes');
-const Cadastro = require('./Schema/UsuarioSchema')
 
 const cors = require('cors');
 const express = require('express');
@@ -16,7 +15,7 @@ app.use(express.json());
 
 const mongoose = require('mongoose');
 const body = require('body-parser')
-mongoose.connect("mongodb+srv://kaua:283186@cluster0.9m3dc2c.mongodb.net/register_box?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://kaua:283186@cluster0.9m3dc2c.mongodb.net/estoque?retryWrites=true&w=majority");
 
 mongoose.connection
     .once('open', () => console.log('ate agora deu certo !!!'))

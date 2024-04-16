@@ -1,6 +1,6 @@
 import { body } from "express-validator";
   
-   export const caixaValidation = [
+   export const produtoValidation = [
      
    
 
@@ -8,7 +8,8 @@ import { body } from "express-validator";
 
         body('quantidade').escape().not().isEmpty().withMessage('quantidade é obrigatorio'),
 
-        body('valor').escape().not().isEmpty().withMessage('valor é obrigatorio'),
+
+
         
         body('descricao').escape().not().isEmpty().withMessage('descrição  é obrigatorio'),
 

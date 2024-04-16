@@ -5,13 +5,10 @@ import {
 
 export const loginValidation = [
   
-  body('cnpj').isNumeric().isLength({
-    min: 14, max: 14
-  }).withMessage('CNPJ  obrigatorio ter 14 digitos'),
 
-  body('cnpj').escape().not().isEmpty().withMessage('CNPJ  obrigatorio'),
 
-  body('empresa').escape().not().isEmpty().withMessage('Empresa  obrigatorio'),
+
+  body('usuario').escape().not().isEmpty().withMessage('usuario  obrigatorio'),
 
   body('password').escape().not().isEmpty().withMessage('senha  obrigatorio'),
 

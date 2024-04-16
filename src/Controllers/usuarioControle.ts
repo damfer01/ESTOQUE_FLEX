@@ -8,13 +8,13 @@ module.exports = {
     async create(req, res) {
         try {
             const {
-                cnpj,
-                empresa,
+                
+                usuario,
                 password,
 
             } = req.body;
 
-            const response = await UserService.create(cnpj, empresa, password);
+            const response = await UserService.create( usuario, password);
 
 
             return res.json(response);
@@ -59,12 +59,12 @@ module.exports = {
             } = req.params;
 
             const {
-                cnpj,
-                empresa,
+                
+                usuario,
                 password,
             } = req.body;
 
-            const response = await UserService.update(id, cnpj, empresa ,password);
+            const response = await UserService.update(id,  usuario ,password);
 
             return res.json(response);
         } catch (error) {

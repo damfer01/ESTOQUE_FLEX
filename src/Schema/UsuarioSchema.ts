@@ -2,11 +2,10 @@ import { Schema , model } from "mongoose";
 
 
 const  Cadastro = new Schema({
-    cnpj:{ type: Number },
 
-   empresa:{type: String },
+   usuario :{type: String  , required: true},
 
-   password:{ type: String },
+   password:{ type: String  , required: true},
    
 });
 

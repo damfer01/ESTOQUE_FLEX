@@ -2,20 +2,19 @@ const bcrypt = require('bcrypt');
 const User = require('../Schema/UsuarioSchema');
 const authService = require('./authService');
 module.exports = {
-    async create(cnpj, empresa, password) {
-        const user = await User.findOne({ empresa });
+    async create(usuario, password) {
+        const user = await User.findOne({ usuario });
         if (!!user)
             return { success: false, message: 'usuário já cadastrado' };
-        const hash = await bcrypt.hash(password, 10);
+        const hash = await bcrypt.hash(password, 30);
         await User.create({
-            cnpj,
-            empresa,
+            usuario,
             password: hash,
         });
-        const { result } = await authService.create(empresa, password);
+        const { result } = await authService.create(usuario, password);
         return {
             success: true,
-            message: 'user successfully created',
+            message: 'usuário criado com sucesso',
             result,
         };
     },
@@ -35,10 +34,10 @@ module.exports = {
             result: user,
         };
     },
-    async update(id, cnpj, empresa) {
+    async update(id, usuario, password) {
         await User.findByIdAndUpdate(id, {
-            cnpj,
-            empresa,
+            usuario,
+            password,
         });
         return { success: true, message: 'sucesso' };
     },

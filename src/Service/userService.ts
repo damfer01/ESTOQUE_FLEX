@@ -5,18 +5,18 @@ const authService = require('./authService')
 
 module.exports = {
 
-    async create(cnpj, empresa, password) {
-        const user = await User.findOne({empresa});
-
+    async create( usuario, password) {
+        const user = await User.findOne({usuario});
+        
         if(!!user) return {success:false , message:'usuário já cadastrado'}
         const hash = await  bcrypt.hash(password, 10);
 
         await User.create({
-            cnpj,
-            empresa,
+            
+            usuario,
             password:hash,
         });
-        const {result} = await authService.create(empresa, password);
+        const {result} = await authService.create(usuario, password);
 
         return {
             success: true,
@@ -45,10 +45,10 @@ module.exports = {
         };
     },
 
-    async update(id, cnpj, empresa,) {
+    async update(id,  usuario,) {
         await User.findByIdAndUpdate(id, {
-            cnpj,
-            empresa,
+            
+            usuario,
         });
 
         return { success: true, message: 'sucesso' };

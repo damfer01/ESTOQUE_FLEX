@@ -1,19 +1,21 @@
-const UserService = require('../Service/userService');
+const Service = require('../Service/produtoService');
 module.exports = {
     async create(req, res) {
+        const user_id = req.user_id;
         try {
-            const { usuario, password, } = req.body;
-            const response = await UserService.create(usuario, password);
+            const { produto, quantidade, codigo, valor, descricao, data, } = req.body;
+            const response = await Service.create(user_id, produto, quantidade, codigo, valor, descricao, data);
             return res.json(response);
         }
         catch (error) {
             console.log(error);
-            return res.json({ success: false, message: 'failed to create user' });
+            return res.json({ success: false, message: '[ERROR] ao criar caixa' });
         }
     },
     async index(req, res) {
+        const user_id = req.user_id;
         try {
-            const response = await UserService.index();
+            const response = await Service.index(user_id);
             return res.json(response);
         }
         catch (error) {
@@ -22,9 +24,10 @@ module.exports = {
         }
     },
     async show(req, res) {
+        const user_id = req.user_id;
         try {
             const { id, } = req.params;
-            const response = await UserService.show(id);
+            const response = await Service.show(user_id, id);
             return res.json(response);
         }
         catch (error) {
@@ -33,10 +36,11 @@ module.exports = {
         }
     },
     async update(req, res) {
+        const user_id = req.user_id;
         try {
             const { id, } = req.params;
-            const { usuario, password, } = req.body;
-            const response = await UserService.update(id, usuario, password);
+            const { produto, quantidade, codigo, valor, descricao, data, } = req.body;
+            const response = await Service.update(user_id, id, produto, quantidade, codigo, valor, descricao, data);
             return res.json(response);
         }
         catch (error) {
@@ -45,9 +49,10 @@ module.exports = {
         }
     },
     async delete(req, res) {
+        const user_id = req.user_id;
         try {
             const { id, } = req.params;
-            const response = await UserService.delete(id);
+            const response = await Service.delete(user_id, id);
             return res.json(response);
         }
         catch (error) {
@@ -56,4 +61,4 @@ module.exports = {
         }
     },
 };
-//# sourceMappingURL=usuarioControle.js.map
+//# sourceMappingURL=produtoController.js.map

@@ -1,6 +1,6 @@
 import { Schema , model } from "mongoose";
 
-const cadastroCaixa = new Schema({
+const produtoSchema = new Schema({
    
     
     usuarioId: {
@@ -34,4 +34,4 @@ const cadastroCaixa = new Schema({
     },
 });
 
-module.exports= model('cadastroCaixa',cadastroCaixa) ; 
+module.exports= model('produto',produtoSchema) ; 

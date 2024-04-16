@@ -1,5 +1,5 @@
 
-const Service = require('../Service/caixaService');
+const Service = require('../Service/produtoService');
 
 module.exports = {
     async create(req, res) {
