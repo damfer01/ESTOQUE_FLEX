@@ -50,11 +50,11 @@ module.exports = {
             codigo,
             valor,
             descricao,
-            data,
+        
 
         });
 
-        return { success: true, message: 'sucesso' };
+        return { success: true, message: 'Update feito com succeso' };
     },
 
     async delete(user_id, id) {

@@ -12,10 +12,8 @@ const produtoSchema = new Schema({
     
     quantidade: {  type: String, required: false      },
     
-    codigo: [
-        {
-            referencia: { type: String, }
-        }
+    codigo:  [
+      
     ],
     
     valor: [
