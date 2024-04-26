@@ -1,8 +1,5 @@
 
-
 const UserService = require('../Service/userService');
-
-
 
 module.exports = {
     async create(req, res) {

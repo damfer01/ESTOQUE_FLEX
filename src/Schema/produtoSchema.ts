@@ -2,7 +2,6 @@ import { Schema , model } from "mongoose";
 
 const produtoSchema = new Schema({
    
-    
     usuarioId: {
         type: Schema.Types.ObjectId,
         ref: "user"
@@ -15,7 +14,6 @@ const produtoSchema = new Schema({
     codigo:  [
       
     ],
-    
     valor: [
         {
             compra: { type: Number, required: false },
@@ -24,7 +22,6 @@ const produtoSchema = new Schema({
     ],
     
     descricao: {  type: String,  required: false  },
-    
     
     data:{
         type: Date,

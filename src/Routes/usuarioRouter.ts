@@ -16,7 +16,6 @@ router.get('/:id', routerUsuario.show);
 router.put('/:id', routerUsuario.update);
 router.delete('/:id', routerUsuario.delete)
 
-
 module.exports = router;
 
 export { };

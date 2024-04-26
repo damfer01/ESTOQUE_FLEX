@@ -18,7 +18,6 @@ routerr.get('/:id', authenticate, routerProoduto.show);
 routerr.put('/:id', authenticate, routerProoduto.update);
 routerr.delete('/:id', authenticate, routerProoduto.delete)
 
-
 module.exports = routerr;
 
 export {};
