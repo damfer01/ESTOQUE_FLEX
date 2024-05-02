@@ -6,7 +6,7 @@ module.exports = {
         const user = await User.findOne({ usuario });
         if (!!user)
             return { success: false, message: 'usuário já cadastrado' };
-        const hash = await bcrypt.hash(password, 30);
+        const hash = await bcrypt.hash(password, 10);
         await User.create({
             usuario,
             password: hash,
@@ -14,7 +14,7 @@ module.exports = {
         const { result } = await authService.create(usuario, password);
         return {
             success: true,
-            message: 'usuário criado com sucesso',
+            message: 'user successfully created',
             result,
         };
     },
@@ -34,10 +34,9 @@ module.exports = {
             result: user,
         };
     },
-    async update(id, usuario, password) {
+    async update(id, usuario) {
         await User.findByIdAndUpdate(id, {
             usuario,
-            password,
         });
         return { success: true, message: 'sucesso' };
     },

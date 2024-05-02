@@ -5,11 +5,12 @@ module.exports = {
         try {
             const { produto, quantidade, codigo, valor, descricao, data, } = req.body;
             const response = await Service.create(user_id, produto, quantidade, codigo, valor, descricao, data);
+            console.log(Service);
             return res.json(response);
         }
         catch (error) {
             console.log(error);
-            return res.json({ success: false, message: '[ERROR] ao criar caixa' });
+            return res.json({ success: false, message: '[ERROR] ao criar produto' });
         }
     },
     async index(req, res) {
@@ -45,7 +46,7 @@ module.exports = {
         }
         catch (error) {
             console.log(error);
-            return res.json({ success: false, message: 'não foi possível criar o usuário' });
+            return res.json({ success: false, message: 'não foi possível criar o produto' });
         }
     },
     async delete(req, res) {

@@ -8,11 +8,7 @@ const produtoSchema = new mongoose_1.Schema({
     },
     produto: { type: String, required: true, },
     quantidade: { type: String, required: false },
-    codigo: [
-        {
-            referencia: { type: String, }
-        }
-    ],
+    codigo: [],
     valor: [
         {
             compra: { type: Number, required: false },
